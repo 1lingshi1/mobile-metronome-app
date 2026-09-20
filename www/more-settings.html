@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#F5F7FA">
+    <title>更多设置</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./sound-settings.css">
+    <link rel="stylesheet" href="./more-settings.css">
+  </head>
+  <body class="settings-page">
+    <div class="settings-shell">
+      <header class="settings-topbar">
+        <a class="back-button" href="./sound-settings.html" aria-label="返回音色调节">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </a>
+        <h1>更多设置</h1>
+        <span class="settings-topbar-spacer" aria-hidden="true"></span>
+      </header>
+
+      <nav class="settings-pager" aria-label="设置页面">
+        <a class="settings-pager-dot" href="./sound-settings.html" aria-label="音色调节"></a>
+        <span class="settings-pager-dot is-active" aria-current="page"></span>
+      </nav>
+
+      <main class="settings-main">
+        <section class="more-settings-card tone-selector-card" aria-labelledby="tone-selector-heading">
+          <div class="tone-selector-card__copy">
+            <p class="eyebrow">节拍器音色</p>
+            <h2 id="tone-selector-heading">音色选择</h2>
+            <p>当前音色：<strong id="selected-tone-name">机械节拍</strong></p>
+            <p id="selected-tone-description">当前默认机械节拍音色</p>
+          </div>
+          <button id="open-tone-selector" class="tone-select-button" type="button" aria-haspopup="dialog" aria-expanded="false">
+            选择音色
+          </button>
+          <p id="tone-selection-status" class="tone-selection-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="more-settings-card background-settings-card" aria-labelledby="background-heading">
+          <div id="background-preview" class="background-preview" role="img" aria-label="背景图片预览">
+            <div class="background-preview-placeholder">
+              <span aria-hidden="true"></span>
+            </div>
+          </div>
+          <h2 id="background-heading">节拍器背景</h2>
+          <p>选择一张图片作为主页背景，图片会自动压缩并保存在本机。</p>
+          <input id="background-file-input" class="visually-hidden" type="file" accept="image/*">
+          <div class="background-actions">
+            <button id="select-background" class="background-select-button" type="button">选择图片</button>
+            <button id="remove-background" class="background-remove-button" type="button" disabled>移除背景</button>
+          </div>
+          <p id="background-status" class="background-status" role="status" aria-live="polite"></p>
+        </section>
+
+
+        <p class="settings-swipe-hint">右滑返回音色调节</p>
+      </main>
+    </div>
+
+    <div id="tone-selector-backdrop" class="tone-selector-backdrop" hidden>
+      <section id="tone-picker-dialog" class="tone-selector-dialog" role="dialog" aria-modal="true" aria-labelledby="tone-picker-title">
+        <div class="tone-dialog-header">
+          <div>
+            <p class="eyebrow">节拍器音色</p>
+            <h2 id="tone-picker-title">选择音色</h2>
+          </div>
+          <button id="close-tone-selector" class="tone-dialog-close" type="button" aria-label="关闭音色选择">×</button>
+        </div>
+        <p class="tone-current-summary">当前音色为 <strong id="tone-current-name">机械节拍</strong></p>
+        <div id="tone-options" class="tone-options" role="radiogroup" aria-label="可选节拍器音色"></div>
+      </section>
+
+      <section id="tone-confirm-dialog" class="tone-selector-dialog tone-confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="tone-confirm-title" hidden>
+        <p class="eyebrow">确认更换</p>
+        <h2 id="tone-confirm-title">更换节拍器音色</h2>
+        <p id="tone-confirm-message" class="tone-confirm-message"></p>
+        <div class="tone-confirm-actions">
+          <button id="cancel-tone-change" class="tone-cancel-button" type="button">取消</button>
+          <button id="confirm-tone-change" class="tone-confirm-button" type="button">确认更换</button>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./more-settings.js"></script>
+  </body>
+</html>

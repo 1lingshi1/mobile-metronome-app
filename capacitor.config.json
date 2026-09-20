@@ -1,0 +1,16 @@
+{
+    "appId":  "com.mobilemetronome.app",
+    "appName":  "节拍器",
+    "webDir":  "www",
+    "server":  {
+                   "androidScheme":  "https"
+               },
+    "plugins":  {
+                    "SystemBars":  {
+                                       "insetsHandling":  "disable",
+                                       "initialViewportFitValueHint":  "cover",
+                                       "style":  "DEFAULT",
+                                       "hidden":  true
+                                   }
+                }
+}

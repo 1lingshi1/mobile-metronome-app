@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#F5F7FA">
+    <title>音色调节</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./sound-settings.css">
+  </head>
+  <body class="settings-page">
+    <div class="settings-shell">
+      <header class="settings-topbar">
+        <a class="back-button" href="./index.html" aria-label="返回节拍器">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </a>
+        <h1>音色调节</h1>
+        <button id="reset-sound" class="reset-sound" type="button">重置</button>
+      </header>
+
+      <nav class="settings-pager" aria-label="设置页面">
+        <span class="settings-pager-dot is-active" aria-current="page"></span>
+        <a class="settings-pager-dot" href="./more-settings.html" aria-label="更多设置"></a>
+      </nav>
+
+      <main class="settings-main">
+        <section class="preview-panel" aria-labelledby="preview-heading">
+          <div class="preview-heading">
+            <div>
+              <p class="eyebrow">6/8 拍点预览</p>
+              <h2 id="preview-heading">调整后立即试听</h2>
+            </div>
+          </div>
+          <div id="sound-preview-track" class="sound-preview-track" aria-hidden="true">
+            <span class="preview-dot preview-dot--strong"></span>
+            <span class="preview-dot"></span>
+            <span class="preview-dot"></span>
+            <span class="preview-dot preview-dot--secondary"></span>
+            <span class="preview-dot"></span>
+            <span class="preview-dot"></span>
+          </div>
+          <button id="preview-sound" class="preview-sound" type="button">
+            <span class="preview-play-icon" aria-hidden="true"></span>
+            <span id="preview-sound-label">试听音色</span>
+          </button>
+        </section>
+
+        <section class="sound-card" aria-labelledby="tone-heading">
+          <div class="sound-card-heading">
+            <h2 id="tone-heading">整体音色</h2>
+            <span>自动保存</span>
+          </div>
+
+          <label class="setting-control" for="volume-slider" data-settings-no-swipe>
+            <span class="setting-control__head">
+              <span>总音量</span>
+              <output id="volume-value" for="volume-slider">100%</output>
+            </span>
+            <input id="volume-slider" class="settings-slider" type="range" min="0.5" max="10" step="0.05" value="5" aria-valuetext="100%">
+          </label>
+
+          <label class="setting-control" for="brightness-slider" data-settings-no-swipe>
+            <span class="setting-control__head">
+              <span>明亮度</span>
+              <output id="brightness-value" for="brightness-slider">100%</output>
+            </span>
+            <input id="brightness-slider" class="settings-slider" type="range" min="0.5" max="2" step="0.05" value="1" aria-valuetext="100%">
+          </label>
+        </section>
+
+        <section class="sound-card" aria-labelledby="mix-heading">
+          <div class="sound-card-heading">
+            <h2 id="mix-heading">响度调节</h2>
+            <span>对应全部音色</span>
+          </div>
+
+          <label class="setting-control" for="kick-slider" data-settings-no-swipe>
+            <span class="setting-control__head">
+              <span>第一拍</span>
+              <output id="kick-value" for="kick-slider">150%</output>
+            </span>
+            <input id="kick-slider" class="settings-slider" type="range" min="0.5" max="1.5" step="0.05" value="1.5" aria-valuetext="150%">
+          </label>
+
+          <label class="setting-control" for="snare-slider" data-settings-no-swipe>
+            <span class="setting-control__head">
+              <span>特殊拍</span>
+              <output id="snare-value" for="snare-slider">150%</output>
+            </span>
+            <input id="snare-slider" class="settings-slider" type="range" min="0.5" max="1.5" step="0.05" value="1.5" aria-valuetext="150%">
+          </label>
+
+          <label class="setting-control" for="hat-slider" data-settings-no-swipe>
+            <span class="setting-control__head">
+              <span>其他拍</span>
+              <output id="hat-value" for="hat-slider">100%</output>
+            </span>
+            <input id="hat-slider" class="settings-slider" type="range" min="0.5" max="1.5" step="0.05" value="1" aria-valuetext="100%">
+          </label>
+        </section>
+
+        <section class="sound-card preset-card" aria-labelledby="preset-heading">
+          <div class="sound-card-heading">
+            <h2 id="preset-heading">快速预设</h2>
+            <span>一键切换</span>
+          </div>
+          <div class="preset-buttons">
+            <button class="preset-button" type="button" data-preset="loud">响亮</button>
+            <button class="preset-button" type="button" data-preset="crisp">清脆</button>
+            <button class="preset-button" type="button" data-preset="punchy">厚重</button>
+          </div>
+        </section>
+
+        <p class="settings-hint">横向拖动滑块调节；上下滑动页面不会误改数值。声音设置会自动保存，运行中调节后从下一拍生效。</p>
+        <p class="settings-swipe-hint">左滑进入更多设置</p>
+      </main>
+    </div>
+
+    <script type="module" src="./sound-settings.js"></script>
+  </body>
+</html>

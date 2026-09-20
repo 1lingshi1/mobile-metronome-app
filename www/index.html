@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#F5F7FA">
+    <title>节拍器</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <h1>节拍器</h1>
+        <div class="topbar-actions">
+          <button id="background-toggle" class="background-toggle" type="button" aria-pressed="false" aria-label="打开后台运行设置">
+            <span class="background-toggle-dot" aria-hidden="true"></span>
+            <span id="background-toggle-label">后台</span>
+          </button>
+          <a id="sound-settings-link" class="icon-button" href="./sound-settings.html" aria-label="调节节拍器音色">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M10 14v6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="tempo-panel" aria-labelledby="tempo-heading">
+          <h2 id="tempo-heading" class="visually-hidden">速度</h2>
+          <div class="bpm-display">
+            <output id="bpm-value" class="bpm-value" for="bpm-slider">120</output>
+            <span class="bpm-unit">BPM</span>
+          </div>
+          <p id="status-text" class="status-text" role="status" aria-live="polite">准备</p>
+        </section>
+
+        <section class="beat-panel" aria-labelledby="beat-heading">
+          <h2 id="beat-heading" class="visually-hidden">节拍</h2>
+          <div id="beat-track" class="beat-track" aria-hidden="true"></div>
+          <p id="beat-count" class="beat-count">第 1 / 4 拍</p>
+        </section>
+
+        <section class="tempo-controls" aria-label="速度控制">
+          <button id="bpm-decrease" class="step-button" type="button" aria-label="速度减 1 BPM">
+            <span aria-hidden="true">−</span>
+          </button>
+          <div class="slider-wrap">
+            <input
+              id="bpm-slider"
+              class="bpm-slider"
+              type="range"
+              min="30"
+              max="350"
+              step="1"
+              value="120"
+              aria-label="速度"
+              aria-valuetext="120 BPM"
+            >
+            <div class="slider-scale" aria-hidden="true">
+              <span>30</span>
+              <span>350</span>
+            </div>
+          </div>
+          <button id="bpm-increase" class="step-button" type="button" aria-label="速度加 1 BPM">
+            <span aria-hidden="true">+</span>
+          </button>
+        </section>
+
+        <section class="signature-panel" aria-labelledby="signature-heading">
+          <div class="signature-current">
+            <span id="signature-heading" class="section-label">拍号</span>
+            <strong id="current-signature" class="current-signature">4/4</strong>
+          </div>
+          <div id="signature-options" class="signature-options" role="group" aria-label="选择其他拍号"></div>
+        </section>
+      </main>
+
+      <footer class="transport-bar" aria-label="播放控制">
+        <button id="reset-button" class="reset-button" type="button" disabled>
+          <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 8a8 8 0 1 0 1 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+            <path d="M19 4v4h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+          <span>重置</span>
+        </button>
+        <button id="start-pause-button" class="start-button" type="button" aria-label="开始">
+          <span id="start-icon" class="start-icon" aria-hidden="true"></span>
+          <span id="start-label">开始</span>
+        </button>
+      </footer>
+    </div>
+
+    <div id="background-guide" class="background-guide-backdrop" hidden>
+      <section class="background-guide-dialog" role="dialog" aria-modal="true" aria-labelledby="background-guide-title">
+        <h2 id="background-guide-title">后台节拍</h2>
+        <p>节拍器始终由 Android 前台服务运行，切到后台或锁屏不会中断；WebView 恢复后会同步当前拍位置。</p>
+        <p id="background-permission-status" class="background-permission-status" role="status" aria-live="polite"></p>
+        <div class="background-guide-actions">
+          <button id="request-notification-permission" type="button">允许通知</button>
+          <button id="open-battery-settings" type="button">电池设置</button>
+          <button id="close-background-guide" type="button">完成</button>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./ui-controller.js"></script>
+  </body>
+</html>

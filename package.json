@@ -1,0 +1,18 @@
+{
+    "name":  "android-metronome",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Android 高精度节拍器",
+    "type":  "module",
+    "scripts":  {
+                    "test":  "node tests/metronome-engine.test.js \u0026\u0026 node tests/beat-sync.test.js \u0026\u0026 node tests/feature-sound.test.js \u0026\u0026 node tests/feature-safe-slider.test.js \u0026\u0026 node tests/feature-settings-swipe.test.js \u0026\u0026 node tests/feature-background.test.js \u0026\u0026 node tests/feature-tone-selector.test.js \u0026\u0026 node tests/feature-background-metronome.test.js",
+                    "check":  "node --check www/metronome-engine.js \u0026\u0026 node --check www/beat-sync.js \u0026\u0026 node --check www/ui-controller.js \u0026\u0026 node --check www/feature-sound.js \u0026\u0026 node --check www/feature-safe-slider.js \u0026\u0026 node --check www/sound-settings.js \u0026\u0026 node --check www/feature-settings-swipe.js \u0026\u0026 node --check www/more-settings.js \u0026\u0026 node --check www/feature-background.js \u0026\u0026 node --check www/feature-tone-selector.js \u0026\u0026 node --check www/feature-background-metronome.js"
+                },
+    "dependencies":  {
+                         "@capacitor/android":  "^8.5.2",
+                         "@capacitor/core":  "^8.5.2"
+                     },
+    "devDependencies":  {
+                            "@capacitor/cli":  "^8.5.2"
+                        }
+}

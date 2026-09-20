@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output and generated files
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.hprof
+
+# Capacitor / Android generated output
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+android/local.properties
+local.properties
+google-services.json
+firebase*.json
+secrets.properties
+keystore.properties
+signing.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# IDE and editor files
+.idea/
+.vscode/
+.fleet/
+.settings/
+.project
+.classpath
+*.iml
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and caches
+*.log
+.cache/
+.tmp/
+.temp/
+android/.externalNativeBuild/
+android/.cxx/
+
+# Local development notes and test artifacts
+agent.md
+mode-plan.md
+artifacts/
